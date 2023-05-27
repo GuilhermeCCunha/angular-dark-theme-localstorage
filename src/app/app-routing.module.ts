@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/pages/components/home/home.component';
 import { SobreComponent } from './core/pages/components/sobre/sobre.component';
 import { ContatoComponent } from './core/pages/components/contato/contato.component';
+import { PageErrorComponent } from './core/pages/components/page-error/page-error.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,8 @@ const routes: Routes = [
     path: 'sobre',
     component: SobreComponent,
   },
+  { path: '404', component: PageErrorComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
