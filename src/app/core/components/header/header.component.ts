@@ -11,19 +11,26 @@ import { ETheme } from '../../enums/ETheme.enum';
 export class HeaderComponent implements OnInit {
   public icon: string = ETheme.ICON_MOON;
   public textTheme: string = ETheme.TEXT_MOON;
-  public theme: boolean = JSON.parse(localStorage.getItem('dark-theme') || '[]')
+  public theme: boolean = false;
   constructor() {}
 
   ngOnInit() {
+    try {
+      this.theme = JSON.parse(localStorage.getItem('isDarkTheme') || '[]')
+    }
+    catch (e) {
+      this.theme
+    }
     if (this.theme === true) {
       this.theme = document.body.classList.toggle('dark-theme');
+      this.textTheme = ETheme.TEXT_SUN;
       this.icon = this.icon = ETheme.ICON_SUN
     }
   }
 
   public toggle() {
     this.theme = document.body.classList.toggle('dark-theme');
-    localStorage.setItem('dark-theme', JSON.stringify(this.theme));
+    localStorage.setItem('isDarkTheme', JSON.stringify(this.theme));
     if (this.theme) {
       this.textTheme = ETheme.TEXT_SUN;
       return (this.icon = ETheme.ICON_SUN);

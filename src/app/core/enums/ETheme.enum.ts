@@ -3,5 +3,5 @@ export enum ETheme {
   TEXT_MOON = 'Dark Theme',
 
   ICON_SUN = 'sun',
-  TEXT_SUN = 'Ligth Theme',
+  TEXT_SUN = 'Light Theme',
 }
